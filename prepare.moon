@@ -9,7 +9,7 @@ strip = (str) -> str\match "^%s*(.-)%s*$"
 read_cmd = (cmd) ->
   f = io.popen cmd, "r"
   with strip f\read"*a"
-    f\close!
+    assert f\close!
 
 fin = io.open manifest_path, "r"
 app = yaml.load fin\read "*a"
@@ -22,6 +22,8 @@ if app.overlay
     f = io.popen command, "r"
     for line in f\lines!
       print "#{step} -- #{line}"
+
+    assert f\close!
 
 if app.dependencies
   print "installing dependencies for #{app.name or "this application"}..."
