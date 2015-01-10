@@ -12,9 +12,7 @@ ENV LAPIS_VERSION 1.0.6
 
 RUN cd $SRC_DIR && curl -LO http://openresty.org/download/ngx_openresty-$OPENRESTY_VERSION.tar.gz \
     && tar xzf ngx_openresty-$OPENRESTY_VERSION.tar.gz && cd ngx_openresty-$OPENRESTY_VERSION \
-    && ./configure --prefix=$OPENRESTY_PREFIX \
- --with-luajit \
- --with-http_realip_module \
+    && ./configure --prefix=$OPENRESTY_PREFIX
     && make && make install && rm -rf ngx_openresty-$OPENRESTY_VERSION*
 
 RUN apt-get -qqy install luarocks
