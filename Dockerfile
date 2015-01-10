@@ -29,6 +29,7 @@ ENTRYPOINT /sbin/my_init
 
 ENV PORT 5000
 EXPOSE 5000
+ENV LAPIS_ENVIRONMENT docker
 
 ONBUILD ADD app.yaml /app/
 ONBUILD RUN moon /app/prepare.moon /app/app.yaml
