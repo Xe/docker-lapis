@@ -27,6 +27,9 @@ ADD prepare.moon /app/prepare.moon
 ADD lapis /etc/service/lapis/run
 ENTRYPOINT /sbin/my_init
 
+ENV PORT 5000
+EXPOSE 5000
+
 ONBUILD ADD app.yaml /app/
 ONBUILD RUN moon /app/prepare.moon /app/app.yaml
 ONBUILD ADD . /app/src
