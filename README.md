@@ -16,9 +16,13 @@ Be sure to include an `app.yaml` manifest:
 ```yaml
 name: "panel"
 
+overlay:
+ - apt-get update
+ - apt-get install -y some-dependency
+
 dependencies:
- - moonscript
- - lapis
+ - bcrypt
+ - elfs
 ```
 
 [![](http://puu.sh/egFMt/ee82453364.png)](https://asciinema.org/a/15303)
