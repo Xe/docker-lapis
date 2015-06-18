@@ -30,6 +30,6 @@ if app.dependencies
 
   for _, dep in pairs app.dependencies
     print "installing dependency #{dep}"
-    read_cmd "moonrocks install #{dep}"
+    read_cmd "luarocks install #{dep}"
 
 print "done!"

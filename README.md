@@ -8,7 +8,7 @@ Usage
 -----
 
 ```Dockerfile
-FROM xena/lapis:2.0
+FROM xena/lapis:2.1
 ```
 
 Be sure to include an `app.yaml` manifest:
