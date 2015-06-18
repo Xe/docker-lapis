@@ -17,18 +17,17 @@ RUN cd $SRC_DIR && curl -LO http://openresty.org/download/ngx_openresty-$OPENRES
 
 RUN apt-get -qqy install luarocks
 
-RUN luarocks install moonrocks && \
-    moonrocks install --server=http://rocks.moonscript.org/manifests/leafo lapis $LAPIS_VERSION && \
-    moonrocks install moonscript && \
-    moonrocks install lapis-console && \
-    moonrocks install yaml
+RUN luarocks install lapis $LAPIS_VERSION && \
+    luarocks install moonscript && \
+    luarocks install lapis-console && \
+    luarocks install yaml
 
 ADD prepare.moon /app/prepare.moon
 ADD lapis /etc/service/lapis/run
 ENTRYPOINT /sbin/my_init
 
-ENV PORT 5000
-EXPOSE 5000
+ENV PORT 8080
+EXPOSE 8080
 ENV LAPIS_ENVIRONMENT docker
 
 ONBUILD ADD app.yaml /app/
