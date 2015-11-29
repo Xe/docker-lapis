@@ -6,9 +6,9 @@ RUN apt-get update && \
 
 # build/install OpenResty
 ENV SRC_DIR /opt
-ENV OPENRESTY_VERSION 1.9.3.1
+ENV OPENRESTY_VERSION 1.9.3.2
 ENV OPENRESTY_PREFIX /app/openresty
-ENV LAPIS_VERSION 1.3.0
+ENV LAPIS_VERSION 1.3.1-1
 
 RUN cd $SRC_DIR && curl -LO http://openresty.org/download/ngx_openresty-$OPENRESTY_VERSION.tar.gz \
     && tar xzf ngx_openresty-$OPENRESTY_VERSION.tar.gz && cd ngx_openresty-$OPENRESTY_VERSION \
